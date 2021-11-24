@@ -15,48 +15,45 @@ another feature is to track the person while studying or working through eye tra
 will go off in case of sleeping to wake the person up.**
 
 
-Tasks
-Wireframes allow you to experiment with the look and feel of a website without committing any code. Create your wireframe in a digital tool. Whiteboard wireframes will not be accepted.
+## WireFrame
 
-Provide an image of your wireframes in the readme of your project.
+![WireFrame](wf.png)
 
-User Stories
-Start out by creating at least 5 user stories for your approved project. The outline/requirements for user stories can be found HERE
+## User Stories
+1. General Use
 
-Each story in your project management board should contain:
+User: As a user i want to have a simple, well layed-out app that is easy to use everyday.
 
-Title
-User Story sentence
-Feature Tasks
-Acceptance Tests
-Provide a link to your project management board that contains your user stories in your project Readme.
+US: so we used pycharm a simple and minimalist GUI that makes it easy to deal with our app!
 
-Software Requirements
-Using the Software Requirements Document, create a new file within your main GH repo named requirements.md. Include in this doc the required information for your software reqs for your project as a whole.
+2. Sleep Detector
 
-Domain Modeling
-Draw out the entities for your project and how they are related to each other. Determine the relationships between the functions/methods and entities of your app.
+User: As a user i want something to keep track of me and help me not fall asleep while studying,reading or working.
 
-Include in your domain model the names and data types of your entities and their properties.
+US: we have a sleep detection feature were we use your laptop camera to keep track of your eyes to ensure you are awake and will play a sound if the system detects you are asleep.
 
-Do some research on domain modeling and create your own diagram that represents your app. Here are some helpful resources as a starting point:
+3. Smart Alarm
 
-Brief introduction to Domain Modeling
-Domain Modeling
-Domain driven architecture diagram
-Include this domain model in the README.md file located in your project’s GitHub repo.
+User: As a user i want something new and fun as i always fall asleep again after i turn off my alarm.
 
-Using a Database? Make an Database Schema Diagram
-If you are using a database of any kind in your project, draft out what your schema will look like by creating a diagram of all your application data models, each in it’s own collection (or table).
+US: our alarm cant be turned off by a button, you must solve a math equation or do hand gestures to stop the alarm.
 
-Be sure to identify the relationships (if any) between each of your data models:
+4. Technology Implementation
 
-Does a single item in your database “belong to” just one other item in your database? For example, a person has one passport, and a passport belongs to a single person.
-Does a item in your database “belong to” multiple other items in your database? For example, a house has many residents, and each resident has one primary house.
-Do many items in your database relate to many other items in your database? For example, a band has many musicians, and a musician can be in many bands.
-Also, include for each seperate collection:
+User: all alarms are getting boring and repetitve
 
-The name of each property stored in the collection.
-The required data type.
-An indication if this collection is associated with another collection.
-Include this diagram in your readme, accompanied by an explanation of each data model and it’s responsibility in the application.
+US: we are creating a smart alarm that uses the cam to help you have a cooler alarm app!
+
+
+## Software Requirements
+1. Hand Gesture: hand gesture is a smart algorithm that tracks the hand in 21 points to detect the gesture given by the hand!
+
+2. Face recognition: another awesome algorith that scans the face with the eyes to detect wether the user is focused and awake or asleep!
+
+3. Pycharm: the housing for the code and other technologies as it creates a GUI (Graphical User Interface) and deploy all the technologies on it!
+
+
+## Domain Modeling
+![Domain Modeling](DM.png)
+
+
