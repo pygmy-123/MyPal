@@ -4,6 +4,8 @@ import datetime
 from threading import *
 
 # Clock Timer
+from pygame import mixer
+
 app_window = Tk()
 app_window.title("Set Timer")
 app_window.geometry("520x650")
@@ -19,7 +21,7 @@ label.pack()
 
 
 def digital_clock():
-    time_live = time.strftime('%I:%M %p')
+    time_live = time.strftime('%H:%M %p')
     label.config(text=time_live)
     label.after(200, digital_clock)
     return time_live
@@ -43,6 +45,17 @@ def alarm():
 
         if current_time == set_alarm_time:
             print("Time to Wake up")
+
+            mixer.init()
+            mixer.music.load("Alarm-ringtone.mp3")
+            mixer.music.play()
+
+            Label(app_window, text="Stop by Playing a game", font="Boulder 12 bold").pack()
+
+            Button(app_window, bg='#6096AA', text="stop", font="Boulder 15 bold", command=mixer.music.stop).pack()
+            Button(app_window, bg='#6096AA', text="Math", font="Boulder 15 bold").pack(side=LEFT, expand=True)
+            Button(app_window, bg='#6096AA', text="f?", font="Boulder 15 bold", activebackground='yellow').pack(
+                side=LEFT, expand=True)
 
 
 Label(app_window, text="", font="Boulder 15 bold", fg="red").pack(pady=10)
@@ -91,8 +104,8 @@ secs = OptionMenu(frame, second, *seconds)
 secs.pack(side=LEFT)
 
 Button(app_window, text="Set Alarm", font="Boulder 15 bold", command=threading).pack(pady=20)
-Label(app_window, text="Snooze by Playing a game", font="Boulder 12 bold").pack()
-Button(app_window,bg='#6096AA', text="Math", font="Boulder 15 bold").pack(side=LEFT, expand=True)
-Button(app_window,bg='#6096AA', text="f?", font="Boulder 15 bold",activebackground='yellow').pack(side=LEFT,  expand=True)
+# Label(app_window, text="Snooze by Playing a game", font="Boulder 12 bold").pack()
+# Button(app_window,bg='#6096AA', text="Math", font="Boulder 15 bold").pack(side=LEFT, expand=True)
+# Button(app_window,bg='#6096AA', text="f?", font="Boulder 15 bold",activebackground='yellow').pack(side=LEFT,  expand=True)
 
 app_window.mainloop()
