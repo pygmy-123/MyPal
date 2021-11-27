@@ -86,7 +86,7 @@ def generate_gesture():
 
         print(flag)
         # Show the final output
-        cv2.imshow("Output", frame)
+        cv2.imshow("Hand gesture game", frame)
         if cv2.waitKey(1) == ord('q'):
             break
         if flag == 3:
