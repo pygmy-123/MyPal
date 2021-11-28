@@ -14,7 +14,7 @@ root = Tk()
 
 root.title('MyPal')
 
-root.geometry("1300x600")
+# root.geometry("1300x600")
 
 
 def open_alarm():
@@ -30,10 +30,11 @@ def open_alarm():
     b2 = Button(top2, text="Check The Answer", command=checker, padx=82, fg='white', bg='#0D7377',
                 font=("Boulder", 12, "normal"))
     b2.grid(row=2, column=0, pady=30)
-    mixer.init()
-    mixer.music.load('Alarm-ringtone.mp3')
-    mixer.music.set_volume(0,1)
-    mixer.music.play()
+    # mixer.init()
+    # mixer.music.load('Alarm-ringtone.mp3')
+    # mixer.music.set_volume(0,1)
+    # mixer.music.play(-1)
+    # mixer.music.play()
 
 
 def checker():
@@ -42,7 +43,7 @@ def checker():
                       font=("Boulder", 15, "normal"))
         math2.grid(row=3, column=0, padx=30, pady=60)
         entry.delete(0, END)
-        b2 = Button(top2, text="Check The Answer", command=checker, padx=82, fg='white', bg='#2F86A6', state=DISABLED,
+        b2 = Button(top2, text="Check The Answer", command=checker, padx=82, fg='white', bg='#0D7377', state=DISABLED,
                     font=("Boulder", 12, "normal"))
         b2.grid(row=2, column=0, pady=30)
         mixer.music.stop()
@@ -57,7 +58,7 @@ def checker():
 def clock():
     # global app_window
     app_window = Toplevel()
-    app_window.geometry("775x610")
+    # app_window.geometry("775x610")
     app_window['bg'] = '#f5f5f5'
 
     def threading():
@@ -67,7 +68,7 @@ def clock():
     Label(app_window, text="", font="Boulder 15 bold", bg='WhiteSmoke').grid(row=3, column=1)
     Label(app_window, text="Set Time", font="Boulder 15 bold", bg='WhiteSmoke').grid(row=4, column=1)
     Label(app_window, text="", font="Boulder 15 bold", fg="red", bg='WhiteSmoke').grid(row=5, column=1)
-    Label(app_window, text="Hour   Min   Sec", font="Boulder 13 normal", bg='WhiteSmoke').grid(row=6, column=1)
+    Label(app_window, text="Hour      Min      Sec", font="Boulder 13 normal", bg='WhiteSmoke').grid(row=6, column=1)
     Label(app_window, text="Note: enter the time in 24 format", fg='#FF0000', font="Boulder 10 italic",
           bg='WhiteSmoke').grid(row=9, column=1)
 
@@ -81,7 +82,8 @@ def clock():
              )
     hour.set(hours[0])
 
-    hrs = OptionMenu(frame, hour, *hours)
+    hrs = ttk.Spinbox(frame, value=hours, width=5)
+    hrs.set('00')
     hrs.pack(side=LEFT)
 
     minute = StringVar(app_window)
@@ -95,7 +97,8 @@ def clock():
                '56', '57', '58', '59', '60')
     minute.set(minutes[0])
 
-    mins = ttk.OptionMenu(frame, minute, *minutes)
+    mins = ttk.Spinbox(frame, value=minutes,width=5)
+    mins.set('00')
     mins.pack(side=LEFT)
 
     second = StringVar(app_window)
@@ -109,8 +112,8 @@ def clock():
                '56', '57', '58', '59', '60')
 
     second.set(seconds[0])
-    secs = OptionMenu(frame, second, *seconds)
-
+    secs = ttk.Spinbox(frame, value=seconds,width=5)
+    secs.set('00')
     secs.pack(side=LEFT)
     app_window.title('Set Alarm')
     # app_window.iconbitmap('C:/Users/Abd/PycharmProjects/3339052_business tools_passing_time_alarm_schedule_icon.ico')
@@ -138,7 +141,7 @@ def clock():
 
     def alarm():
         while True:
-            set_alarm_time = f"{hour.get()}:{minute.get()}:{second.get()}"
+            set_alarm_time = f"{hrs.get()}:{mins.get()}:{secs.get()}"
             time.sleep(1)
             current_time = datetime.datetime.now().strftime("%H:%M:%S")
             print(current_time, set_alarm_time)
@@ -148,7 +151,8 @@ def clock():
 
                 mixer.init()
                 mixer.music.load("Alarm-ringtone.mp3")
-                mixer.music.play()
+                mixer.music.play(-1)
+                # mixer.music.play()
                 Label(app_window, text="", font="Boulder 12 bold", bg='WhiteSmoke').grid(
                     row=15, column=1)
                 Label(app_window, text="Stop by Playing a game", font="Boulder 12 bold", bg='WhiteSmoke').grid(
@@ -176,13 +180,13 @@ rand2 = random.randrange(1, 50)
 root['bg'] = '#f5f5f5'
 
 blank_label1 = Label(root, text="Welcome to MyPal", fg='#0D7377', background='#f5f5f5', font=("Boulder", 22, "bold"))
-blank_label1.grid(row=0, column=1, padx=30, pady=50)
+blank_label1.grid(row=0, column=1, pady=50)
 frame_left = LabelFrame(root, text="Alarm", padx=30, pady=30, fg='#0D7377', background='#f5f5f5',
                         font=("Boulder", 12, "normal"))
-frame_left.grid(row=3, column=0, padx=100)
+frame_left.grid(row=3, column=0,padx=20)
 frame_right = LabelFrame(root, text="Sleep Detector", padx=30, pady=30, fg='#0D7377', background='#f5f5f5',
                          font=("Boulder", 12, "normal"))
-frame_right.grid(row=3, column=2, padx=0)
+frame_right.grid(row=3, column=2,padx=20)
 
 img1 = Image.open('alarm.jpg')
 resize_image = img1.resize((250, 250))
