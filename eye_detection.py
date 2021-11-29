@@ -131,7 +131,6 @@ from imutils import face_utils
 from threading import Thread
 import threading
 import winsound
-# from win10toast import ToastNotifier
 import numpy as np
 import argparse
 import imutils

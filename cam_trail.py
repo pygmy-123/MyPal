@@ -4,6 +4,8 @@ import mediapipe as mp
 import tensorflow as tf
 from tensorflow.keras.models import load_model
 import random as random
+from pygame import mixer
+
 ### open camera
 def all_gest():
     mpHands = mp.solutions.hands
@@ -65,6 +67,8 @@ def all_gest():
         if cv2.waitKey(1) == ord('q'):
             break
         if flag == 3:
+            mixer.init()
+            mixer.music.stop()
             break
     cap.release()
     cv2.destroyAllWindows()
