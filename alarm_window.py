@@ -6,8 +6,8 @@ from pygame import mixer
 import datetime
 from threading import *
 from tkinter import ttk
-from eye_detection import all_functions
-from cam_trail import generate_gesture
+from eye_detection import all
+from cam_trail import all_gest
 
 root = Tk()
 # root.iconbitmap('icon.ico')
@@ -167,13 +167,12 @@ def clock():
 
 
 def open_sleep():
-    all_functions()
+    all()
     # top.iconbitmap('C:/Users/Abd/PycharmProjects/3339052_business tools_passing_time_alarm_schedule_icon.ico')
 
 
 def open_hand_gesture():
-    generate_gesture()
-
+    all_gest()
 
 rand1 = random.randrange(1, 50)
 rand2 = random.randrange(1, 50)
