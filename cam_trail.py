@@ -13,9 +13,11 @@ def all_gest():
     mpDraw = mp.solutions.drawing_utils
     model = load_model('hand-gesture-recognition-code/mp_hand_gesture')
     classNames = ['okay', 'peace', 'thumbs up', 'thumbs down', 'call me', 'stop', 'rock', 'live long', 'fist', 'smile']
+    classNames2 = ['okay', 'peace', 'thumbs up', 'thumbs down', 'call me', 'stop', 'rock', 'fist', 'smile']
+
     ## randomly generate a sequence of gestures
     def generate_random_ges():
-        random_ges = random.choice(classNames)
+        random_ges = random.choice(classNames2)
         return random_ges
     random_ges = generate_random_ges()
     # Initialize the webcam for Hand Gesture Recognition Python project
